@@ -71,6 +71,79 @@
         }
     }
 
+    function searchattackLT() {
+        if(deck == "main"){
+            let   attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.lessThanOrEqualTo("attack", attack).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.lessThanOrEqualTo("attack", attack).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
+    }
+
+    function searchattackGT() {
+        if(deck == "main"){
+            let   attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.greaterThanOrEqualTo("attack", attack).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.greaterThanOrEqualTo("attack", attack).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
+    }
+
+    function searchdefenceLT() {
+        if(deck == "main"){
+            let   defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.lessThanOrEqualTo("defence", defence).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.lessThanOrEqualTo("defence", defence).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
+    }
+
+   function searchdefenceGT() {
+        if(deck == "main"){
+            let   defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.greaterThanOrEqualTo("defence", defence).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.greaterThanOrEqualTo("defence", defence).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
+    }
+
+
     function searchLevel() {
         if(deck == "main"){ 
             let   level = parseInt($("#level").val());
@@ -150,11 +223,19 @@
   <h1>ラビュリンスデッキ</h1>
   <div>
     <label for="name">name:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <input id="name" type="text" placeholder="card name">
   </div>
   <div>
     <label for="type">type:</label>
-    <input id="type" type="text" placeholder="monster type">
+    <input id="type" type="text" placeholder="card type">
+  </div>
+  <div>
+    <label for="attack">attack:</label>
+    <input id="attack" type="number" placeholder="monster attack">
+  </div>
+  <div>
+    <label for="defence">defence:</label>
+    <input id="defence" type="number" placeholder="monster defence">
   </div>
   <div>
     <label for="level">level:</label>
@@ -165,6 +246,10 @@
     <button class="btn" onclick="fetchAllex()"><font size="3">EXデッキ</font></button><br>
     <button class="btn" onclick="searchName()">Name</button>
     <button class="btn" onclick="searchType()">Type</button><br>
+    <button class="btn" onclick="searchattackLT()">attack =&lt</button>
+    <button class="btn" onclick="searchattackGT()">attack =&gt</button><br>
+    <button class="btn" onclick="searchdefenceLT()">defence =&lt</button>
+    <button class="btn" onclick="searchdefenceGT()">defence =&gt</button><br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
     <button class="btn" onclick="searchLevel()">Level</button>
     <button class="btn" onclick="searchLevelGT()">Level &gt</button>
