@@ -14,9 +14,21 @@
     let ncmb = new NCMB(appKey, clientKey);
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
     const db = "mm";
+    const bd = "ex";
+    let deck;
 
     function fetchAll() {
+        deck = "main";
       let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("name",false).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
+    function fetchAllex() {
+        deck = "ex";
+      let TestDataClass = ncmb.DataStore(bd);
       TestDataClass.order("name",false).fetchAll()
         .then(function(results) {
           showResults(results);
@@ -104,7 +116,8 @@
     <input id="level" type="number" placeholder="monster level">
   </div>
   <div id="button">
-    <button class="btn" onclick="fetchAll()">Fetch All</button>
+    <button class="btn" onclick="fetchAll()"><font size="2">メインデッキ</font></button>
+    <button class="btn" onclick="fetchAllex()"><font size="2">EXデッキ</font></button><br>
     <button class="btn" onclick="searchName()">Name</button>
     <button class="btn" onclick="searchType()">Type</button><br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
