@@ -54,39 +54,75 @@
     }
 
     function searchType() {
-        let type = $("#type").val();
-        let TestDataClass = ncmb.DataStore(db);
-        TestDataClass.equalTo("type", type).fetchAll()
-        .then(function(results) {
-            showResults(results);
-        })
+        if(deck == "main"){ 
+            let type = $("#type").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("type", type).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let type = $("#type").val();
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.equalTo("type", type).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
     }
 
     function searchLevel() {
-        let   level = parseInt($("#level").val());
-        let TestDataClass = ncmb.DataStore(db);
-        TestDataClass.equalTo("level", level).fetchAll()
-        .then(function(results) {
-            showResults(results);
-        })
+        if(deck == "main"){ 
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.equalTo("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
     }
 
     function searchLevelLT() {
-        let   level = parseInt($("#level").val());
-        let TestDataClass = ncmb.DataStore(db);
-        TestDataClass.lessThan("level", level).fetchAll()
-        .then(function(results) {
-            showResults(results);
-        })
+        if(deck == "main"){
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.lessThan("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.lessThan("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
     }
 
     function searchLevelGT() {
-        let   level = parseInt($("#level").val());
-        let TestDataClass = ncmb.DataStore(db);
-        TestDataClass.greaterThan("level", level).fetchAll()
-        .then(function(results) {
-            showResults(results);
-        })
+        if(deck == "main"){
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.greaterThan("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }else if(deck == "ex"){
+            let   level = parseInt($("#level").val());
+            let TestDataClass = ncmb.DataStore(bd);
+            TestDataClass.greaterThan("level", level).fetchAll()
+            .then(function(results) {
+                showResults(results);
+            })
+        }
     }
 
     function showResults(results) {
